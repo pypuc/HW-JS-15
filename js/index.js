@@ -29,23 +29,26 @@ console.log(filterVisitors);
 // 3
 
 const people = [
-    {name: "Богдан", frriend: "Андрій"},
-    {name: "Даня", frriend: "Дмитро"},
-    {name: "Єгор", frriend: "Андрій"},
-    {name: "Денис", frriend: "Даня"},
-    {name: "Дмитро", frriend: "Даня"},
-    {name: "Андрій", frriend: "Дмитро"}
+    {name: "Богдан", frriends: 5},
+    {name: "Даня", frriends: 43},
+    {name: "Єгор", frriends: 14},
+    {name: "Денис", frriends: 4},
+    {name: "Дмитро", frriends: 10},
+    {name: "Андрій", frriends: 1}
 ];
-const friends = people.reduce((firstFriend, man) => {
-    if (man.frriend === "Андрій") {
-        firstFriend.push(man)
-        return firstFriend
-    } else if (man.frriend === "Дмитро") {
-        firstFriend.push(man)
-        return firstFriend
-        
-    } else if (man.frriend === "Даня") {
-        firstFriend.push(man)
-        return firstFriend
-    }
-})
+const copyPeople = [...people]
+copyPeople.sort((prevNum, nextNum) => nextNum.frriends - prevNum.frriends)
+console.log(copyPeople)
+
+// 4
+
+const userss = [
+    {name: "user1", balance: 395, location: "Ukraine", skills: "volleyball"},
+    {name: "user2", balance: 57, location: "England", skills: "football"},
+    {name: "user3", balance: 917, location: "Austria", skills: "basketball"},
+    {name: "user4", balance: 1020, location: "Switzerland", skills: "handball"},
+    {name: "user5", balance: 150, location: "Ukraine", skills: "programming"}
+];
+const copyUserss = [...userss]
+copyUserss.sort((a, b) => a.skills.localeCompare(b.skills))
+console.log(copyUserss)
